@@ -1,0 +1,45 @@
+<div class="container">
+  <header>
+    <span class="title">Todoist Tasks - Due Today | Overdue</span>
+  </header>
+  <main>
+    <ul class="task-list">
+      {% for task in tasks %}
+      <li class="task-list">
+        <div class="task-content">
+          <span class="title title--small">
+            <strong>{{ task.content }}</strong>
+          </span>
+        </div>
+        <div class="task-details"> <div class="r-bg-gray-4">
+          <span class="description">
+            <em>{{task.description}}</em><br>
+          </span>
+          {% if task.due_date %}
+          <span class="label label--small">Due: {{task.due_date}}</span>
+          {% endif %}
+          {% if task.priority %}
+          <span class="label label--small">Priority: {{task.priority}}</span>
+          {% endif %}
+        </div></div>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="title_bar">
+      <img class="image" src="https://www.svgrepo.com/download/306859/todoist.svg">
+      <span class="title">Todoist (Unofficial)</span>
+      <span class="instance">@KilobyteTheDust</span>
+    </div>
+  </main>
+  <style>
+    body {
+    }
+    header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    li {
+      margin-bottom: 12px;
+    }
+  </style>
+</div>
