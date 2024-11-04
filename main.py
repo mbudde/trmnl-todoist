@@ -6,6 +6,7 @@ from todoist_api_python.api import TodoistAPI
 import datetime
 
 DEBUG = False
+user_filter_query = "today | overdue"
 
 #===#
 load_dotenv()
@@ -20,7 +21,7 @@ trmnl_webhook_url = f"https://usetrmnl.com/api/custom_plugins/{webhook_id}"
 
 # GET TODOIST DATA
 try:
-    filter_query = 'today | overdue'
+    filter_query = f'{user_filter_query}'
     tasks = todoist_api_key.get_tasks(filter=filter_query)
     if DEBUG: print(tasks)
 except Exception as error:
@@ -62,11 +63,13 @@ if len(parsed_tasks) > MAX_TASKS:
 tasks = parsed_tasks
 if DEBUG: print(tasks)
 
+'''
 # RENDER HTML
 env = Environment(loader=FileSystemLoader('.'))
 template = env.get_template('template.html.j2')
 html_output = template.render(tasks=tasks)
 if DEBUG: print(html_output)
+'''
 
 # SEND DATA TO WEBHOOK
 try:

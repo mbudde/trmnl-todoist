@@ -11,15 +11,15 @@
             <strong>{{ task.content }}</strong>
           </span>
         </div>
-        <div class="task-details"> <div class="r-bg-gray-4">
+        <div class="task-details" > <div class="r-bg-gray-4">
           <span class="description">
             <em>{{task.description}}</em><br>
           </span>
           {% if task.due_date %}
-          <span class="label label--small">Due: {{task.due_date}}</span>
+          <span class="label label--small">📅 {{task.due_date}}</span>
           {% endif %}
           {% if task.priority %}
-          <span class="label label--small">Priority: {{task.priority}}</span>
+          <span class="label label--small">🏴 {{task.priority}}</span>
           {% endif %}
         </div></div>
       </li>
@@ -40,6 +40,13 @@
     }
     li {
       margin-bottom: 12px;
+    }
+    .title_bar {
+      position: relative;
+      bottom: -50px;
+      left: 0;
+      right: 0;
+      text-align: center;
     }
   </style>
 </div>
