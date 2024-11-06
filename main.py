@@ -14,7 +14,7 @@ load_dotenv()
 env_todoist_api_key = os.getenv('TODOIST_API')
 todoist_api_key = TodoistAPI(env_todoist_api_key)
 trmnl_api_key = os.getenv('TRMNL_API_KEY')
-trmnl_mac_address = os.getenv('TRMNL_DEVICE_MAC')
+#trmnl_mac_address = os.getenv('TRMNL_DEVICE_MAC')
 webhook_id = os.getenv('TRMNL_PLUGIN_ID')
 trmnl_webhook_url = f"https://usetrmnl.com/api/custom_plugins/{webhook_id}"
 #===#

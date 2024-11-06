@@ -1,52 +1,22 @@
-<div class="container">
-  <header>
-    <span class="title">Todoist Tasks - Due Today | Overdue</span>
-  </header>
-  <main>
-    <ul class="task-list">
-      {% for task in tasks %}
-      <li class="task-list">
-        <div class="task-content">
-          <span class="title title--small">
-            <strong>{{ task.content }}</strong>
-          </span>
+<div class="layout">
+    {% for task in tasks %}
+    <div class="item">
+        <div class="meta">
+            <span class="index">{{ loop.index }}</span>
         </div>
-        <div class="task-details" > <div class="r-bg-gray-4">
-          <span class="description">
-            <em>{{task.description}}</em><br>
-          </span>
-          {% if task.due_date %}
-          <span class="label label--small">📅 {{task.due_date}}</span>
-          {% endif %}
-          {% if task.priority %}
-          <span class="label label--small">🏴 {{task.priority}}</span>
-          {% endif %}
-        </div></div>
-      </li>
-      {% endfor %}
-    </ul>
-    <div class="title_bar">
-      <img class="image" src="https://www.svgrepo.com/download/306859/todoist.svg">
-      <span class="title">Todoist (Unofficial)</span>
-      <span class="instance">@KilobyteTheDust</span>
+        <div class="content">
+            <span class="title title--small">{{ task.content }}</span>
+            <span class="description">{{task.description}}</span>
+            <div class="flex gap--small">
+                <span class="label label--small label--underline">📅{{task.due_date}}</span>
+                <span class="label label--small label--underline">🏴{{task.priority}}</span>
+            </div>
+        </div>
     </div>
-  </main>
-  <style>
-    body {
-    }
-    header {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    li {
-      margin-bottom: 12px;
-    }
-    .title_bar {
-      position: relative;
-      bottom: -50px;
-      left: 0;
-      right: 0;
-      text-align: center;
-    }
-  </style>
+    {% endfor %}
+</div>
+<div class="title_bar">
+    <img class="image" src="https://www.svgrepo.com/download/306859/todoist.svg">
+    <span class="title">Todoist (Unofficial)</span>
+    <span class="instance">@KilobyteTheDust</span>
 </div>
