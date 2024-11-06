@@ -1,4 +1,7 @@
 # TRMNL Todoist Plugin
+
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+
 <img src="https://www.svgrepo.com/download/306859/todoist.svg" alt="Todoist Logo" width="100px">
 
 Unofficial Todoist plugin for TRMNL.
@@ -29,3 +32,5 @@ From there, you can schedule the code to run at regular intervals to post to TRM
 # Disclaimer
 
 This plugin is an unofficial project and is not affiliated with, endorsed by, or supported by Doist
+
+<a href="https://www.buymeacoffee.com/nynir" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
