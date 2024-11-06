@@ -1,6 +1,9 @@
 # TRMNL Todoist Plugin
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
+![License](https://img.shields.io/github/license/Nynir/trmnl-todoist)
+![Issues](https://img.shields.io/github/issues/Nynir/trmnl-todoist)
+![Stars](https://img.shields.io/github/stars/Nynir/trmnl-todoist)
 
 <img src="https://www.svgrepo.com/download/306859/todoist.svg" alt="Todoist Logo" width="100px">
 
