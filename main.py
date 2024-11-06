@@ -62,3 +62,4 @@ try:
     print(f"Tasks sent successfully to TRMNL at {current_timestamp}")
 except Exception as error:
     print(error)
+    

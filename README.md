@@ -1,21 +1,20 @@
 # TRMNL Todoist Plugin
+<img src="https://www.svgrepo.com/download/306859/todoist.svg" alt="Todoist Logo" width="100px">
+
 Unofficial Todoist plugin for TRMNL.
 
 ## Details
 This plugin operates using Todoist filters, which may require Todoist pro. 
-You can edit the query run by changing the ``user_filter_query`` variable.
-Tasks are sorted in order of Priority, from highest to lowest: ``parsed_tasks.sort(key=lambda x: x['priority'], reverse=True)``
+You can edit the query run by changing the ``user_filter_query`` variable in `main.py`.
+
+Tasks are sorted in order of Priority, from highest to lowest.
 
 ## Requirements
 This code operates with the Todoist REST API and the TRMNL webhook API. You will have to run this code yourself in some capacity to push updated Todoist task queries to TRMNL at regular intervals.
 
-You need:
-1. To have this code running on a schedule to push updates
-2. A TRMNL API key and a Todoist API key
-
 ## Setup
 1. In TRMNL go to Plugins -> Private Plugin -> Add New. Give it a name, and select "Webhook" for the Strategy. Hit save.
-2. Collect the Plugin UUID as well as your TRMNL API key
+2. Collect the Plugin UUID as well as your TRMNL API key.
 3. Download the code and in the same folder as it, create a ``.env`` file, and populate like so:
 ```
 TRMNL_API_KEY="<your api key>"
@@ -27,5 +26,6 @@ TRMNL_PLUGIN_ID="<your plugin UUID>"
 
 From there, you can schedule the code to run at regular intervals to post to TRMNL based on your desired frequency.
 
-# Notes
-- Currently the html template uses overflow management which hasn't officially been integrated by TRMNL yet. It may not function as intended.
+# Disclaimer
+
+This plugin is an unofficial project and is not affiliated with, endorsed by, or supported by Doist
