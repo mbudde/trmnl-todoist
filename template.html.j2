@@ -1,22 +1,53 @@
-<div class="layout">
-    {% for task in tasks %}
+<header style="text-align: center;">
+  <span class="title">Todoist - {{ todoist_query }}</span><br>
+</header>
+<div class="columns">
+  <div class="column"
+    data-list-limit="false"
+    data-list-max-height="340"
+    data-list-hidden-count="true">
+    {% assign first_list_limit = 5 %}
+    {% assign tasks_to_display = tasks | slice: 0, first_list_limit %}
+    {% for task in tasks_to_display %}
     <div class="item">
-        <div class="meta">
-            <span class="index">{{ loop.index }}</span>
+      <div class="meta">
+        <span class="index">{{ forloop.index }}</span>
+      </div>
+      <div class="content">
+        <span class="title title--small">{{ task.content }}</span>
+        <span class="description">{{task.description}}</span>
+        <div class="flex gap--small">
+          <span class="label label--small label--underline">📅{{task.due_date}}</span>
+          <span class="label label--small label--underline">🏴{{task.priority}}</span>
         </div>
-        <div class="content">
-            <span class="title title--small">{{ task.content }}</span>
-            <span class="description">{{task.description}}</span>
-            <div class="flex gap--small">
-                <span class="label label--small label--underline">📅{{task.due_date}}</span>
-                <span class="label label--small label--underline">🏴{{task.priority}}</span>
-            </div>
-        </div>
+      </div>
     </div>
     {% endfor %}
+  </div>
+  <div class="column"
+    data-list-limit="true"
+    data-list-max-height="340"
+    data-list-hidden-count="true">
+    {% assign tasks_to_display = tasks | slice: first_list_limit, tasks.size %}
+    {% for task in tasks_to_display %}
+    <div class="item">
+      <div class="meta">
+        <span class="index">{{ forloop.index | plus: first_list_limit }}</span>
+      </div>
+      <div class="content">
+        <span class="title title--small">{{ task.content }}</span>
+        <span class="description">{{task.description}}</span>
+        <div class="flex gap--small">
+          <span class="label label--small label--underline">📅{{task.due_date}}</span>
+          <span class="label label--small label--underline">🏴{{task.priority}}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 <div class="title_bar">
-    <img class="image" src="https://www.svgrepo.com/download/306859/todoist.svg">
-    <span class="title">Todoist (Unofficial)</span>
-    <span class="instance">@KilobyteTheDust</span>
+  <img class="image" src="https://www.svgrepo.com/download/306859/todoist.svg">
+  <span class="title">Todoist (Unofficial)</span>
+  <span class="instance">@KilobyteTheDust</span>
 </div>

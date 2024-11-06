@@ -1,5 +1,11 @@
 # TRMNL Todoist Plugin
 Unofficial Todoist plugin for TRMNL.
+
+## Details
+This plugin operates using Todoist filters, which may require Todoist pro. 
+You can edit the query run by changing the ``user_filter_query`` variable.
+Tasks are sorted in order of Priority, from highest to lowest: ``parsed_tasks.sort(key=lambda x: x['priority'], reverse=True)``
+
 ## Requirements
 This code operates with the Todoist REST API and the TRMNL webhook API. You will have to run this code yourself in some capacity to push updated Todoist task queries to TRMNL at regular intervals.
 
@@ -21,7 +27,5 @@ TRMNL_PLUGIN_ID="<your plugin UUID>"
 
 From there, you can schedule the code to run at regular intervals to post to TRMNL based on your desired frequency.
 
-### Editing the Todoist query
-This plugin operates using Todoist filters, which may require Todoist pro. You can edit the query run by changing the ``user_filter_query`` variable.
-
-If you do so, you might also want to update the markup in TRMNL to reflect  the new filter being used.
+# Notes
+- Currently the html template uses overflow management which hasn't officially been integrated by TRMNL yet. It may not function as intended.

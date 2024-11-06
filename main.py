@@ -27,18 +27,13 @@ try:
 except Exception as error:
     print(error)
 
-MAX_TASKS = 5  # throttling otherwise it will extend into infinity
-
 # PARSE DATA
 parsed_tasks = []
-for task in tasks:
+for index, task in enumerate(tasks, start=1):
     description = task.description if task.description else 'No description'
-    if len(description) > 60:
-        description = description[:60] + '...'
     content = task.content
-    if len(content) > 60:
-        content = content[:60] + '...'
     parsed_task = {
+        'index': index,
         'content': content,
         'description': description,
         'due_date': task.due.date if task.due else None,
@@ -49,33 +44,14 @@ for task in tasks:
 # Sort by priority (p4 = highest in Todoist)
 parsed_tasks.sort(key=lambda x: x['priority'], reverse=True)
 
-# Actual throttling
-if len(parsed_tasks) > MAX_TASKS:
-    additional_tasks_count = len(parsed_tasks) - (MAX_TASKS - 1) # Replacing the 4th task with an appending task
-    parsed_tasks = parsed_tasks[:MAX_TASKS - 1]
-    parsed_tasks.append({
-        'content': f'...and {additional_tasks_count} more tasks',
-        'description': '',
-        'due_date': None,
-        'priority': None 
-    })
-
 tasks = parsed_tasks
 if DEBUG: print(tasks)
-
-'''
-# RENDER HTML
-env = Environment(loader=FileSystemLoader('.'))
-template = env.get_template('template.html.j2')
-html_output = template.render(tasks=tasks)
-if DEBUG: print(html_output)
-'''
 
 # SEND DATA TO WEBHOOK
 try:
     response = requests.post(
         trmnl_webhook_url,
-        json={'merge_variables': {'tasks': tasks}},
+        json={'merge_variables': {'tasks': tasks, 'todoist_query': user_filter_query}},
         headers={
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {trmnl_api_key}'
