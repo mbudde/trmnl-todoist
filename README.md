@@ -5,9 +5,11 @@
 ![Issues](https://img.shields.io/github/issues/Nynir/trmnl-todoist)
 ![Stars](https://img.shields.io/github/stars/Nynir/trmnl-todoist)
 
-<img src="https://www.svgrepo.com/download/306859/todoist.svg" alt="Todoist Logo" width="100px">
+<img src="https://www.svgrepo.com/download/306859/todoist.svg" alt="Todoist Logo" width="10%">
 
 Unofficial Todoist plugin for TRMNL.
+
+<img src="https://pbs.twimg.com/media/GbuhujzXEBQucP5?format=jpg&name=large" alt="Desk picture" width="50%">
 
 ## Details
 This plugin operates using Todoist filters, which may require Todoist pro. 
