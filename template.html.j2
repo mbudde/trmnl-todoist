@@ -1,10 +1,10 @@
 <div class="layout">
     <div class="columns">
         <div class="list"
-        data-list-limit="false"
-        data-list-max-height="340"
-        data-list-hidden-count="false">
-            {% assign first_list_limit = 5 %}
+            data-list-limit="false"
+            data-list-max-height="380"
+            data-list-hidden-count="false">
+            {% assign first_list_limit = 8 %}
             {% assign tasks_to_display = tasks | slice: 0, first_list_limit %}
             {% for task in tasks_to_display %}
             <div class="item">
@@ -25,9 +25,9 @@
         </div>
         <div class="list"> <!-- Truncation List -->
             <div class="list"
-            data-list-limit="true"
-            data-list-max-height="340"
-            data-list-hidden-count="true">
+                data-list-limit="true"
+                data-list-max-height="380"
+                data-list-hidden-count="true">
                 {% assign tasks_to_display = tasks | slice: first_list_limit, tasks.size %}
                 {% for task in tasks_to_display %}
                 <div class="item">
