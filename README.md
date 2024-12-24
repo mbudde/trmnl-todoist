@@ -29,7 +29,7 @@ TRMNL_API_KEY="<your api key>"
 TODOIST_API="<your api key>"
 TRMNL_PLUGIN_ID="<your plugin UUID>"
 ```
-4. Take the code in ``template.html.j2`` and add it as the markup for your TRMNL plugin
+4. Take the code in `markup-*.html.liquid` files and add it as the markup for your TRMNL plugin.
 5. Run ``main.py`` and if it successfully posts to TRMNL you should be set. You can force a refresh in TRMNL to see if the data populates.
 
 From there, you can schedule the code to run at regular intervals to post to TRMNL based on your desired frequency.

@@ -1,0 +1,60 @@
+<div class="layout">
+  {% if tasks.size == 0 %}
+    <span class="title">Well done! No tasks remaining</span>
+  {% else %}
+    <div class="columns">
+      <div class="list"
+           data-list-limit="false"
+           data-list-max-height="380"
+           data-list-hidden-count="false">
+        {% assign first_list_limit = 8 %}
+        {% assign tasks_to_display = tasks | slice: 0, first_list_limit %}
+        {% for task in tasks_to_display %}
+          <div class="item">
+            <div class="meta">
+              <span class="index">{{ forloop.index }}</span>
+            </div>
+            <div class="content">
+              <span class="title title--small">{{ task.content }}</span>
+              <span class="description">{{task.description}}</span>
+              <div class="flex gap--small">
+                {% if task.assignee %}<span class="label label--small label--underline">{{ task.assignee }}</span>{% endif %}
+                <span class="label label--small label--underline">{{task.due_date}}</span>
+                <span class="label label--small">{% for i in (1..task.priority) %}★{% endfor %}</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="list">
+        <div class="list"
+             data-list-limit="true"
+             data-list-max-height="380"
+             data-list-hidden-count="true">
+          {% assign tasks_to_display = tasks | slice: first_list_limit, tasks.size %}
+          {% for task in tasks_to_display %}
+            <div class="item">
+              <div class="meta">
+                <span class="index">{{ forloop.index | plus: first_list_limit }}</span>
+              </div>
+              <div class="content">
+                <span class="title title--small">{{ task.content }}</span>
+                <span class="description">{{task.description}}</span>
+                <div class="flex gap--small">
+                  {% if task.assignee %}<span class="label label--small label--underline">{{ task.assignee }}</span>{% endif %}
+                  <span class="label label--small label--underline">{{task.due_date}}</span>
+                  <span class="label label--small">{% for i in (1..task.priority) %}★{% endfor %}</span>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
+<div class="title_bar">
+  <img class="image" src="https://www.svgrepo.com/download/306859/todoist.svg">
+  <span class="title">Todoist</span>
+  <span class="instance">{{ todoist_query }}</span>
+</div>
