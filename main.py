@@ -36,7 +36,7 @@ except Exception as error:
 # PARSE DATA
 parsed_tasks = []
 for index, task in enumerate(tasks, start=1):
-    description = task.description if task.description else 'No description'
+    description = task.description if task.description else ''
     content = task.content
     parsed_task = {
         'index': index,
