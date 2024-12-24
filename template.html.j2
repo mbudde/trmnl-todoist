@@ -18,8 +18,9 @@
                     <span class="title title--small">{{ task.content }}</span>
                     <span class="description">{{task.description}}</span>
                     <div class="flex gap--small">
-                        <span class="label label--small label--underline">📅{{task.due_date}}</span>
-                        <span class="label label--small label--underline">🏴{{task.priority}}</span>
+                        {% if task.assignee %}<span class="label label--small label--underline">{{ task.assignee }}</span>{% endif %}
+                        <span class="label label--small label--underline">{{task.due_date}}</span>
+                        <span class="label label--small">{% for i in (1..task.priority) %}★{% endfor %}</span>
                     </div>
                 </div>
             </div>
@@ -40,8 +41,9 @@
                         <span class="title title--small">{{ task.content }}</span>
                         <span class="description">{{task.description}}</span>
                         <div class="flex gap--small">
-                            <span class="label label--small label--underline">📅{{task.due_date}}</span>
-                            <span class="label label--small label--underline">🏴{{task.priority}}</span>
+                            {% if task.assignee %}<span class="label label--small label--underline">{{ task.assignee }}</span>{% endif %}
+                            <span class="label label--small label--underline">{{task.due_date}}</span>
+                            <span class="label label--small">{% for i in (1..task.priority) %}★{% endfor %}</span>
                         </div>
                     </div>
                 </div>

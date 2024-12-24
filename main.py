@@ -26,6 +26,13 @@ try:
 except Exception as error:
     print(error)
 
+try:
+    project_ids = set(task.project_id for task in tasks)
+    collaborators = {c.id: c.name for pid in project_ids for c in todoist_api_key.get_collaborators(project_id=pid)}
+    if DEBUG: print(collaborators)
+except Exception as error:
+    print(error)
+
 # PARSE DATA
 parsed_tasks = []
 for index, task in enumerate(tasks, start=1):
@@ -36,7 +43,8 @@ for index, task in enumerate(tasks, start=1):
         'content': content,
         'description': description,
         'due_date': task.due.date if task.due else None,
-        'priority': task.priority
+        'priority': task.priority,
+        'assignee': collaborators[task.assignee_id] if task.assignee_id else None,
     }
     parsed_tasks.append(parsed_task)
 
