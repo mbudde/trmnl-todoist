@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 import requests
-from jinja2 import Environment, FileSystemLoader
 from todoist_api_python.api import TodoistAPI
 import datetime
 
