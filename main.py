@@ -42,10 +42,16 @@ for index, task in enumerate(tasks, start=1):
         'index': index,
         'content': content,
         'description': description,
-        'due_date': task.due.date if task.due else None,
         'priority': task.priority,
         'assignee': collaborators[task.assignee_id] if task.assignee_id else None,
     }
+    if task.due:
+        parsed_task['due_date'] = task.due.date
+        if task.due.datetime:
+            dt = datetime.datetime.fromisoformat(task.due.datetime)
+            if task.due.timezone:
+                dt = dt.astimezone(task.due.timezone)
+            parsed_task['due_date'] += " " + dt.strftime('%H:%M')
     parsed_tasks.append(parsed_task)
 
 # Sort by priority (p4 = highest in Todoist)
