@@ -1,0 +1,3 @@
+python-dotenv
+requests
+todoist_api_python
