@@ -1,9 +1,10 @@
 import os
-from dotenv import load_dotenv
+import sys
+import datetime
 import requests
 from zoneinfo import ZoneInfo
+from dotenv import load_dotenv
 from todoist_api_python.api import TodoistAPI
-import datetime
 
 DEBUG = False
 user_filter_query = "today | overdue"
