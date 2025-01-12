@@ -27,6 +27,7 @@ try:
     if DEBUG: print(tasks)
 except Exception as error:
     print(error)
+    sys.exit(1)
 
 try:
     project_ids = set(task.project_id for task in tasks)
