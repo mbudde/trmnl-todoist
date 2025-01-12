@@ -35,6 +35,7 @@ try:
     if DEBUG: print(collaborators)
 except Exception as error:
     print(error)
+    collaborators = {}
 
 # PARSE DATA
 parsed_tasks = []
