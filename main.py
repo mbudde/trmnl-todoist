@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 import requests
+from zoneinfo import ZoneInfo
 from todoist_api_python.api import TodoistAPI
 import datetime
 
@@ -50,7 +51,8 @@ for index, task in enumerate(tasks, start=1):
         if task.due.datetime:
             dt = datetime.datetime.fromisoformat(task.due.datetime)
             if task.due.timezone:
-                dt = dt.astimezone(task.due.timezone)
+                tz = ZoneInfo(task.due.timezone)
+                dt = dt.astimezone(tz)
             parsed_task['due_date'] += " " + dt.strftime('%H:%M')
     parsed_tasks.append(parsed_task)
 
