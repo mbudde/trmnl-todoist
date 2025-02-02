@@ -47,7 +47,7 @@ for index, task in enumerate(tasks, start=1):
         'content': content,
         'description': description,
         'priority': task.priority,
-        'assignee': collaborators[task.assignee_id] if task.assignee_id else None,
+        'assignee': collaborators.get(task.assignee_id) if task.assignee_id else None,
     }
     if task.due:
         parsed_task['due_date'] = task.due.date
